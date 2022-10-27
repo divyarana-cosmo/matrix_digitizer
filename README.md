@@ -10,3 +10,5 @@
 - [ ] Graphical way for the user to choose pixels corresponding to the correlation matrix and colorbar?
 
 - [ ] Is it possible to autodetect the number of entries in the correlation matrix? Or can we just ask the user to input that too?
+
+- [ ] Choose a distance metric for colours. Section 3 of <https://www.researchgate.net/publication/221205971_Distance_measures_in_RGB_and_HSV_color_spaces> lists some commonly used metrics.
