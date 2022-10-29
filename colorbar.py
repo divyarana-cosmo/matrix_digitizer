@@ -63,4 +63,4 @@ if __name__ == "__main__":
 	cbar = colorbar(vals, cbar_hsv, dist)
 	
 	print("Colour at pixel 342: ", cbar_hsv[342-19])
-	print( cbar.match((0.59689922, 0.60992908, 0.55078125)) ) #What value corresponds to the given colour? Should be between -4.2 and -4.4 for this colour
+	print("Value at the given colour: ", cbar.match((0.59689922, 0.60992908, 0.55078125)) ) #Should be between -4.2 and -4.4 for this colour
