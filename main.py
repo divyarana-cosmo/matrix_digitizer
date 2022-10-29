@@ -2,6 +2,7 @@
 Playground to test various things
 """
 
+import numpy as np
 import PIL
 import matplotlib
 
