@@ -41,7 +41,7 @@ class colorbar:
 		hsvs: hsv values for the corresponding element in vals
 		dist: a 'distance metric' in colour-space that outputs a float given two three-element tuples.
 		"""
-		self.range = vals
+		self.vals = vals
 		self.hsvs = hsvs
 		self.dist = dist
 	
