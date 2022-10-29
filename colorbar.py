@@ -62,4 +62,4 @@ if __name__ == "__main__":
 	cbar_hsv = get_cbar_hsv("samples/1.png", pixels)
 	cbar = colorbar(vals, cbar_hsv, dist)
 	
-	print( cbar.match((0.8359375, 0.609375, 0.55078125)) ) #What value corresponds to the given colour?
+	print( cbar.match((0.59689922, 0.60992908, 0.55078125)) ) #What value corresponds to the given colour? Should be between -4.2 and -4.4 for this colour
