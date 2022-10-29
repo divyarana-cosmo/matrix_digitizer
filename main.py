@@ -57,9 +57,9 @@ if __name__ == "__main__":
 	"""
 	Just some example usage of the above functions for now
 	"""
-	vals = np.range(0,1,100) #The axis values on the colorbar
-	pixels = [(10,i) for i in range(10,110)] #Pixels of the image on which the colorbar is located
-	cbar_hsv = get_cbar_hsv("example_colorbar.png", pixels)
+	pixels = [(19,i) for i in range(19,441)] #Pixels of the image on which the colorbar is located
+	vals = np.linspace(1,-6,len(pixels)) #The axis values on the colorbar
+	cbar_hsv = get_cbar_hsv("samples/1.png", pixels)
 	cbar = colorbar(vals, cbar_hsv, dist)
 	
-	print( cbar.match((0.3,0.3,0.3)) ) #What value corresponds to the colour (0.3,0.3,0.3)?
+	print( cbar.match((0.8359375, 0.609375, 0.55078125)) ) #What value corresponds to the given colour?
