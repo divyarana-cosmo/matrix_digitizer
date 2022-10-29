@@ -1,5 +1,5 @@
 """
-Playground to test various things
+Functions to handle a colorbar
 """
 
 import numpy as np
