@@ -53,6 +53,16 @@ class colorbar:
 		dists = [ self.dist(hsv, c) for c in self.hsvs ]
 		i = np.argmin(dists)
 		return self.vals[i]
+	
+	def match_range(self, hsv):
+		"""
+		Given a 3-element tuple (HSV values), return the range of vals that is consistent with it (as a tuple).
+		"""
+		dists = [ self.dist(hsv, c) for c in self.hsvs ]
+		min_d = np.min(dists)
+		inds = np.nonzero(dists == min_d) #return indices where dist is the same as the minimum distance
+		vals = self.vals[inds]
+		return (np.min(vals), np.max(vals))
 
 if __name__ == "__main__":
 	"""
@@ -65,3 +75,4 @@ if __name__ == "__main__":
 	
 	print("Colour at pixel 342: ", cbar_hsv[342-19])
 	print("Value corresponding to the given colour: ", cbar.match((0.59689922, 0.60992908, 0.55078125)) ) #Should be between -4.2 and -4.4 for this colour
+	print("Range of values corresponding to the given colour: ", cbar.match_range((0.59689922, 0.60992908, 0.55078125)) )
