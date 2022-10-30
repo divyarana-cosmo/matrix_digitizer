@@ -77,4 +77,4 @@ if __name__ == "__main__":
 	print("Go back to the figure window")
 	point = p.get_point("Pick the point whose value you want")
 	
-	print("The value corresponding to the point you clicked is between ", cbar.match_range(get_im_hsv(p.im, point)))
+	print("\nThe value corresponding to the point you clicked is between ", cbar.match_range(get_im_hsv(p.im, point)))
