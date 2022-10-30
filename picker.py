@@ -52,7 +52,7 @@ if __name__ == "__main__":
 		filename = input("Enter the path to the image. Ctrl+D for default (samples/1.png): ")
 	except EOFError:
 		filename = "samples/1.png"
-		print("Using default.\n")
+		print("\nUsing default.\n")
 	
 	p = picker(filename)
 	
