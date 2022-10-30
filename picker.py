@@ -37,7 +37,9 @@ class picker():
 		plt.show(block=False)
 		plt.pause(self._dt)
 	
-	def get_point(self):
+	def get_point(self, message=None):
+		if message is not None:
+			self.prompt(message)
 		self.point = None
 		cid = self.pick()
 		while self.point is None:
@@ -48,11 +50,9 @@ class picker():
 if __name__ == "__main__":
 	p = picker("samples/1.png")
 	
-	p.prompt("Click one end of the colorbar")
-	cbar_lim_1 = np.array(p.get_point())
+	cbar_lim_1 = np.array(p.get_point("Click one end of the colorbar"))
 	
-	p.prompt("Click the other end of the colorbar")
-	cbar_lim_2 = np.array(p.get_point())
+	cbar_lim_2 = np.array(p.get_point("Click the other end of the colorbar"))
 	
 	p.prompt("Go to the terminal now")
 	
@@ -69,7 +69,6 @@ if __name__ == "__main__":
 	cbar = colorbar(vals, cbar_hsv)
 	
 	print("Go back to the figure window")
-	p.prompt("Pick the point whose value you want")
-	point = p.get_point()
+	point = p.get_point("Pick the point whose value you want")
 	
 	print("The value corresponding to the point you clicked is between ", cbar.match_range(get_im_hsv(p.im, point)))
