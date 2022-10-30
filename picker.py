@@ -3,7 +3,7 @@ Script that allows the user to click and pick a value in an image, and then retu
 
 """
 
-from colorbar import get_cbar_hsv, colorbar
+from colorbar import get_cbar_hsv, get_im_hsv, colorbar
 import numpy as np
 import matplotlib.pyplot as plt
 import PIL
@@ -73,4 +73,5 @@ if __name__ == "__main__":
 	p.prompt("Pick the point whose value you want")
 	point = p.get_point()
 	
-	print("The value corresponding to the point you clicked is between ", cbar.match_range(get_cbar_hsv(p.filename, [point])[0]))
+	with PIL.Image.open(p.filename) as im:
+		print("The value corresponding to the point you clicked is between ", cbar.match_range(get_im_hsv(im, point)))
