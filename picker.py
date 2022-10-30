@@ -24,7 +24,7 @@ class picker():
 		plt.show(block=False)
 	
 	def pick(self):
-		cid = self.fig.canvas.mpl_connect('button_press_event', self.onclick)
+		_ = self.fig.canvas.mpl_connect('button_press_event', self.onclick)
 		plt.show(block=False)
 	
 	def show(self):
