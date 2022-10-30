@@ -34,6 +34,7 @@ class picker():
 	def prompt(self, message):
 		self.ax.set_title(message)
 		plt.show(block=False)
+		plt.pause(0.1)
 	
 	def get_point(self):
 		self.point = None
