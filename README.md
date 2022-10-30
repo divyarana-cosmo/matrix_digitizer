@@ -23,3 +23,7 @@
 - [ ] Is it possible to autodetect the number of entries in the correlation matrix? Or can we just ask the user to input that too?
 
 - [ ] Choose a distance metric for colours. Section 3 of <https://www.researchgate.net/publication/221205971_Distance_measures_in_RGB_and_HSV_color_spaces> lists some commonly used metrics.
+
+- [ ] Decouple colorbar range from colorbar scale
+	
+	- Currently, one has to input exact values at the top/bottom of the colorbar (or truncate the colour range to between the first and last ticks). This is a problem, since there need not be ticks exactly at the endpoints of the colorbar (see `samples/1.png`). May be better to ask the user to first mark the range of the colorbar with two clicks, and then separately click any two of the ticks (manually inputting the values thereof). A problem is that one may then have to assume something about the orientation of the colorbar. We could of course work around it with a more complicated way of specifying the colorbar position (a draggable line on which ticks can be placed).
