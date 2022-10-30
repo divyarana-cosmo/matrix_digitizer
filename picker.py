@@ -1,6 +1,5 @@
 """
 Script that allows the user to click and pick a value in an image, and then returns the data value corresponding to that point.
-
 """
 
 from colorbar import get_cbar_hsv, get_im_hsv, colorbar
