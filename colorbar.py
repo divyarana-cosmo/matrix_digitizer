@@ -17,13 +17,24 @@ def get_cbar_hsv(filename, pixels):
 	Returns:
 		hsv -> a list of 3-element RGB tuples
 	"""
-	rgbs = []
+	hsvs = []
 	with PIL.Image.open(filename) as im:
 		for pixel in pixels:
-			rgb = im.getpixel(pixel) #each element of the tuple (c) satisfies 0 <= c < 256.
-			rgbs.append(tuple([c/256 for c in rgb]))
+			hsvs.append( get_im_hsv(im, pixel) )
+	return hsvs
+
+def get_im_hsv(im, pixel):
+	"""
+	Arguments
+		Im: PIL.Image.Image
+		pixel: 2-element tuple
 	
-	hsv = matplotlib.colors.rgb_to_hsv(rgbs)
+	Returns
+		hsv: 3-element tuple
+	"""
+	rgb = im.getpixel(pixel) #each element of the tuple (c) satisfies 0 <= c < 256.
+	rgb = tuple([c/256 for c in rgb])
+	hsv = matplotlib.colors.rgb_to_hsv(rgb)
 	return hsv
 
 def dist(c1, c2):
