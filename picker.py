@@ -22,11 +22,11 @@ class picker():
 		x = int(np.round(click.xdata))
 		y = int(np.round(click.ydata))
 		self.point = (x,y)
-		plt.show(block=False)
+		self.show()
 	
 	def pick(self):
 		cid = self.fig.canvas.mpl_connect('button_press_event', self.onclick)
-		plt.show(block=False)
+		self.show()
 		return cid
 	
 	def show(self):
@@ -34,7 +34,7 @@ class picker():
 	
 	def prompt(self, message):
 		self.ax.set_title(message)
-		plt.show(block=False)
+		self.show()
 		plt.pause(self._dt)
 	
 	def get_point(self, message=None):
