@@ -11,12 +11,13 @@ import PIL
 class picker():
 	def __init__(self, filename):
 		self.filename = filename
+		self.im = PIL.Image.open(filename)
+		
 		self.point = None
 		self._dt = 0.1 #How long to wait for event loop to run etc.
 		
 		self.fig, self.ax = plt.subplots()
-		with PIL.Image.open(filename) as img:
-			self.im = plt.imshow(img)
+		self.imshow = plt.imshow(self.im)
 	
 	def onclick(self, click):
 		x = int(np.round(click.xdata))
@@ -73,5 +74,4 @@ if __name__ == "__main__":
 	p.prompt("Pick the point whose value you want")
 	point = p.get_point()
 	
-	with PIL.Image.open(p.filename) as im:
-		print("The value corresponding to the point you clicked is between ", cbar.match_range(get_im_hsv(im, point)))
+	print("The value corresponding to the point you clicked is between ", cbar.match_range(get_im_hsv(p.im, point)))
