@@ -35,7 +35,7 @@ def dist(c1, c2):
 	return np.sqrt(np.sum((c1 - c2)**2))
 
 class colorbar:
-	def __init__(self, vals, hsvs, dist):
+	def __init__(self, vals, hsvs, dist=dist):
 		"""
 		vals: an array containing the axis values of the colorbar
 		hsvs: hsv values for the corresponding element in vals
