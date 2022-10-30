@@ -49,10 +49,10 @@ class picker():
 if __name__ == "__main__":
 	p = picker("samples/1.png")
 	
-	p.prompt("click one end of the colorbar")
+	p.prompt("Click one end of the colorbar")
 	cbar_lim_1 = np.array(p.get_point())
 	
-	p.prompt("click the other end of the colorbar")
+	p.prompt("Click the other end of the colorbar")
 	cbar_lim_2 = np.array(p.get_point())
 	
 	p.prompt("Go to the terminal now") #TODO: This is not actually displayed.
