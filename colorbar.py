@@ -48,6 +48,7 @@ class colorbar:
 	def match(self, hsv):
 		"""
 		Given a 3-element tuple (HSV values), return the element of vals that is the closest to it.
+		If multiple values are consistent with the same colour (e.g. a colorbar with a small number of levels), the smallest among them will be returned.
 		"""
 		dists = [ self.dist(hsv, c) for c in self.hsvs ]
 		i = np.argmin(dists)
