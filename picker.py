@@ -12,7 +12,7 @@ class picker():
 	def __init__(self, filename):
 		self.filename = filename
 		self.point = None
-		self._dt #How long to wait for event loop to run etc.
+		self._dt = 0.1 #How long to wait for event loop to run etc.
 		
 		self.fig, self.ax = plt.subplots()
 		with PIL.Image.open(filename) as img:
