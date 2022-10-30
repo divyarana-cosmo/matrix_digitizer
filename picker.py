@@ -67,7 +67,7 @@ if __name__ == "__main__":
 	cbar_val_1 = float(input("Input the data value for the first point you clicked: "))
 	cbar_val_2 = float(input("Input the data value for the second point you clicked: "))
 	
-	n = int(np.round(np.sqrt(np.sum((cbar_lim_1 - cbar_lim_2)**2)))) #Number of points to use to represent to colorbar.
+	n = int(np.round(np.sqrt(np.sum((cbar_lim_1 - cbar_lim_2)**2)))) #Number of points to use to represent the colorbar.
 	cbar_pixels_x = np.linspace(cbar_lim_1[0], cbar_lim_2[0], n,  dtype=int)
 	cbar_pixels_y = np.linspace(cbar_lim_1[1], cbar_lim_2[1], n,  dtype=int)
 	cbar_pixels = [(cbar_pixels_x[i], cbar_pixels_y[i]) for i in range(n)]
