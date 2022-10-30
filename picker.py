@@ -17,6 +17,8 @@ class picker():
 		
 		self.fig, self.ax = plt.subplots()
 		self.imshow = plt.imshow(self.im)
+		self.ax.set_xticks([])
+		self.ax.set_yticks([])
 	
 	def onclick(self, click):
 		x = int(np.round(click.xdata))
