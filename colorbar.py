@@ -8,7 +8,7 @@ import matplotlib
 
 def get_cbar_hsv(filename, pixels):
 	"""
-	Given an image file containing a colorbar and a list of pixels corresponding to the location of the colorbar in that image, return the HSV values of those pixels. For now, we will assume two colours are close if their HSV values are close.
+	Given an image file containing a colorbar and a list of pixels corresponding to the location of the colorbar in that image, return the HSV values of those pixels.
 	
 	Arguments:
 		filename -> str
