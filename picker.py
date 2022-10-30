@@ -24,17 +24,19 @@ class picker():
 		plt.show(block=False)
 	
 	def pick(self):
-		_ = self.fig.canvas.mpl_connect('button_press_event', self.onclick)
+		cid = self.fig.canvas.mpl_connect('button_press_event', self.onclick)
 		plt.show(block=False)
+		return cid
 	
 	def show(self):
 		plt.show(block=False)
 	
 	def get_point(self):
 		self.point = None
-		self.pick()
+		cid = self.pick()
 		while self.point is None:
 			plt.pause(0.1)
+		self.fig.canvas.mpl_disconnect(cid)
 		return self.point
 
 if __name__ == "__main__":
