@@ -12,6 +12,7 @@ class picker():
 	def __init__(self, filename):
 		self.filename = filename
 		self.point = None
+		self._dt #How long to wait for event loop to run etc.
 		
 		self.fig, self.ax = plt.subplots()
 		with PIL.Image.open(filename) as img:
@@ -34,13 +35,13 @@ class picker():
 	def prompt(self, message):
 		self.ax.set_title(message)
 		plt.show(block=False)
-		plt.pause(0.1)
+		plt.pause(self._dt)
 	
 	def get_point(self):
 		self.point = None
 		cid = self.pick()
 		while self.point is None:
-			plt.pause(0.1)
+			plt.pause(self._dt)
 		self.fig.canvas.mpl_disconnect(cid)
 		return self.point
 
