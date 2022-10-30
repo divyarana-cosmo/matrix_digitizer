@@ -21,35 +21,42 @@ class picker():
 		x = int(np.round(click.xdata))
 		y = int(np.round(click.ydata))
 		self.point = (x,y)
+		plt.show(block=False)
 	
 	def pick(self):
 		cid = self.fig.canvas.mpl_connect('button_press_event', self.onclick)
-		plt.show()
+		plt.show(block=False)
 	
 	def show(self):
-		plt.show()
+		plt.show(block=False)
+	
+	def get_point(self):
+		self.point = None
+		self.pick()
+		while self.point is None:
+			plt.pause(0.1)
+		return self.point
 
 if __name__ == "__main__":
 	p = picker("samples/1.png")
 	
 	p.ax.set_title("click one end of the colorbar")
-	p.pick()
-	cbar_lim_1 = np.array(p.point)
+	cbar_lim_1 = np.array(p.get_point())
 	
 	p.ax.set_title("click the other end of the colorbar")
 	p.pick()
-	cbar_lim_2 = np.array(p.point)
+	cbar_lim_2 = np.array(p.get_point())
 	
-	p.ax.set_title("Go to the terminal now")
+	p.ax.set_title("Go to the terminal now") #TODO: This is not actually displayed.
 	p.show()
 	
-	cbar_val_1 = input("Input the data value for the first point you clicked")
-	cbar_val_2 = input("Input the data value for the second point you clicked")
+	cbar_val_1 = float(input("Input the data value for the first point you clicked: "))
+	cbar_val_2 = float(input("Input the data value for the second point you clicked: "))
 	
-	n = int(np.round(np.sqrt((cbar_lim_1 - cbar_lim_2)**2))) #Number of points to use to represent to colorbar. TODO: Better way to set this?
+	n = int(np.round(np.sqrt(np.sum((cbar_lim_1 - cbar_lim_2)**2)))) #Number of points to use to represent to colorbar. TODO: Better way to set this?
 	cbar_pixels_x = np.linspace(cbar_lim_1[0], cbar_lim_2[0], n,  dtype=int)
 	cbar_pixels_y = np.linspace(cbar_lim_1[1], cbar_lim_2[1], n,  dtype=int)
-	cbar_pixels = np.swapaxes([cbar_pixels_x, cbar_pixels_y],0,1)
+	cbar_pixels = [(cbar_pixels_x[i], cbar_pixels_y[i]) for i in range(n)]
 	
 	vals = np.linspace(cbar_val_1, cbar_val_2, n)
 	cbar_hsv = get_cbar_hsv(p.filename, cbar_pixels)
@@ -57,6 +64,6 @@ if __name__ == "__main__":
 	
 	print("Go back to the figure window")
 	p.ax.set_title("Pick the point whose value you want")
-	p.pick()
+	point = p.get_point()
 	
-	print("The value corresponding to the point you clicked is ", cbar.match_range(get_cbar_hsv(p.point)[0]))
+	print("The value corresponding to the point you clicked is ", cbar.match_range(get_cbar_hsv(p.filename, [p.point])[0]))
