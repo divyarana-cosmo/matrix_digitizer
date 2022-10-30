@@ -48,7 +48,13 @@ class picker():
 		return self.point
 
 if __name__ == "__main__":
-	p = picker("samples/1.png")
+	try:
+		filename = input("Enter the path to the image. Ctrl+D for default (samples/1.png): ")
+	except EOFError:
+		filename = "samples/1.png"
+		print("Using default.\n")
+	
+	p = picker(filename)
 	
 	cbar_lim_1 = np.array(p.get_point("Click one end of the colorbar"))
 	
