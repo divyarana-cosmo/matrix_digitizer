@@ -66,4 +66,4 @@ if __name__ == "__main__":
 	p.ax.set_title("Pick the point whose value you want")
 	point = p.get_point()
 	
-	print("The value corresponding to the point you clicked is ", cbar.match_range(get_cbar_hsv(p.filename, [point])[0]))
+	print("The value corresponding to the point you clicked is between ", cbar.match_range(get_cbar_hsv(p.filename, [point])[0]))
