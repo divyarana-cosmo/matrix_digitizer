@@ -55,7 +55,6 @@ if __name__ == "__main__":
 	cbar_lim_2 = np.array(p.get_point())
 	
 	p.prompt("Go to the terminal now") #TODO: This is not actually displayed.
-	p.show()
 	
 	cbar_val_1 = float(input("Input the data value for the first point you clicked: "))
 	cbar_val_2 = float(input("Input the data value for the second point you clicked: "))
